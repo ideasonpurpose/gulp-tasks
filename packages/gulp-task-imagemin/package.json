@@ -1,0 +1,17 @@
+{
+  "name": "@ideasonpurpose/gulp-task-imagemin",
+  "version": "0.1.0",
+  "description": "A gulp 4 task for compressing images",
+  "license": "ISC",
+  "author": "Ideas On Purpose (https://www.ideasonpurpose.com)",
+  "contributors": [
+    "Joe Maller <joe@ideasonpurpose.com>"
+  ],
+  "main": "index.js",
+  "dependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-imagemin": "^5.0.3",
+    "imagemin-mozjpeg": "^8.0.0"
+  }
+}
