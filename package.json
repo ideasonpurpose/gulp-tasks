@@ -1,0 +1,19 @@
+{
+  "name": "gulp-tasks",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A collection of gulp tasks",
+  "repository": "https://github.com/ideasonpurpose/gulp-tasks.git",
+  "license": "ISC",
+  "author": "Ideas On Purpose (https://www.ideasonpurpose.com)",
+  "contributors": [
+    "Joe Maller <joe@ideasonpurpose.com>"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "lerna": "lerna"
+  },
+  "devDependencies": {
+    "lerna": "^3.10.5"
+  }
+}
