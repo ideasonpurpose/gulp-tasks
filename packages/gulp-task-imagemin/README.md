@@ -1,10 +1,24 @@
+![npm](https://img.shields.io/npm/v/@ideasonpurpose/gulp-task-imagemin.svg)
+[![dependencies Status](https://david-dm.org/ideasonpurpose/gulp-tasks/status.svg?path=packages/gulp-task-imagemin)](https://david-dm.org/ideasonpurpose/gulp-tasks?path=packages/gulp-task-imagemin)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
+## Installation
+
+```
+$ yarn add @ideasonpurpose/gulp-task-imagemin
+
+  or
+
+$ npm install @ideasonpurpose/gulp-task-imagemin
+```
+
 ## Usage
 
-This module is a factory function which returns a pre-configured task for gulp 4. This allows us to simplify a project's gulpfile down to just configuration, with boilerplate tasks imported just like any other npm module.
+This module is a factory function which returns a pre-configured task for gulp 4. This helps simplify gulpfiles down to little more than configuration, with boilerplate tasks like this one imported just like any other npm module.
 
 ### Basic
 
-Really simple, just trust the defaults:
+Call the `create` method directly on the import. In many cases, just trust the defaults and go:
 
 ```js
 const imagemin = require("@ideasonpurpose/gulp-task-imagemin").create();
@@ -18,12 +32,12 @@ const watch = () => {
 exports.imagemin = imagemin;
 ```
 
-### Custom options
+### Options
 
 The `create` method accepts one configuration object. This module accepts four properties:
 
 - **src**  
-  A glob string or array of glob-strings. Defaults to `src/images/**/*`  
+  A glob string or array of glob-strings. Defaults to `src/images/**/*`
   _Passed directly to `gulp.src`_
 
 - **srcOptions**  
@@ -57,18 +71,6 @@ const imagemin = require("@ideasonpurpose/gulp-task-imagemin").create({
 ```
 
 Incremental builds may prevent new files from being processed. If the file's modification date is before the tasks's last-run timestamp, the new file will not be processed. Either restart the watch or `touch` the files to be added.
-
-#### Watch helper
-
-Very frequently, gulp `watch` globs are identical to the source globs for a given task. To reduce repetition, the factory function exposes a `watch` property which contains an array of src, cwd and task. Using the spread operator, this makes watches very concise and easier to maintain.
-
-```js
-const imagemin = require("@ideasonpurpose/gulp-task-imagemin").create();
-
-const watch = () => {
-  gulp.watch(...imagemin.watch);
-};
-```
 
 ### Plugins
 
@@ -119,7 +121,19 @@ const prodPlugins = [
 
 #### Custom plugins
 
-While the default plugins work very well in most cases, the plugins array can also be customized. Specifying a custom set of plugins overrides all defaults and overrides the internal environment check.
+While the default plugins work very well in most cases, the plugins array can also be customized. Specifying a custom set of plugins overrides all defaults including the `NODE_ENV` environment check.
+
+### Watch helper
+
+Very frequently, gulp `watch` globs are identical to the source globs for a given task. To reduce repetition, the generated task includes a helper method which calls `gulp.watch` with default arguments. This makes writing watch tasks very concise and easy to maintain.
+
+```js
+const imagemin = require("@ideasonpurpose/gulp-task-imagemin").create({ gulp });
+
+const watch = () => {
+  imagemin.watch(); // calls `gulp.watch(src, {cwd: srcOptions.cwd}, imagemin)`
+};
+```
 
 [gulp.src]: https://gulpjs.com/docs/en/api/src
 [srcoptions]: https://gulpjs.com/docs/en/api/src#options

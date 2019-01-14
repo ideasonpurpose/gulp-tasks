@@ -8,6 +8,7 @@
     "Joe Maller <joe@ideasonpurpose.com>"
   ],
   "main": "index.js",
+  "repository": "https://github.com/ideasonpurpose/gulp-tasks/tree/master/packages/gulp-task-imagemin",
   "dependencies": {
     "browser-sync": "^2.26.3",
     "gulp": "^4.0.0",

@@ -8,10 +8,12 @@ These tasks have grown out of several years using gulp. Composition of tasks bec
 
 ## About tasks
 
-All packages export a factory function which returns a pre-configured task for gulp 4. This allows us to simplify a project's gulpfile down to just configuration, with boilerplate tasks imported just like any other npm module.
+All packages export a factory function which returns a pre-configured Gulp 4 task. This allows us to simplify a project's gulpfile down to just configuration, with boilerplate tasks imported just like any other npm module.
 
 ### Tasks
 
 - [@ideasonpurpose/gulp-task-imagemin](https://www.npmjs.com/package/@ideasonpurpose/gulp-task-imagemin)
+
+- [@ideasonpurpose/gulp-task-styles](https://www.npmjs.com/package/@ideasonpurpose/gulp-task-styles)
 
 [iop]: https://www.ideasonpurpose.com
