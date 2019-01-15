@@ -9,11 +9,11 @@ Create pre-configured Gulp 4 tasks using Sass and PostCSS to generate CSS styles
 ## Installation
 
 ```
-$ yarn add @ideasonpurpose/gulp-task-sass
+$ yarn add @ideasonpurpose/gulp-task-styles
 
   or
 
-$ npm install @ideasonpurpose/gulp-task-sass
+$ npm install @ideasonpurpose/gulp-task-styles
 ```
 
 ## Usage
@@ -23,7 +23,7 @@ $ npm install @ideasonpurpose/gulp-task-sass
 Call the `create` method directly on the import. In most cases, just trust the defaults and go:
 
 ```js
-const sass = require("@ideasonpurpose/gulp-task-sass").create();
+const sass = require("@ideasonpurpose/gulp-task-styles").create();
 
 // Call the task as a watch action
 const watch = () => {
