@@ -1,0 +1,15 @@
+{
+  "name": "@ideasonpurpose/gulp-task-clean",
+  "version": "0.1.0",
+  "description": "A gulp 4 task to clean build artifacts",
+  "license": "ISC",
+  "author": "Ideas On Purpose (https://www.ideasonpurpose.com)",
+  "contributors": [
+    "Joe Maller <joe@ideasonpurpose.com>"
+  ],
+  "main": "index.js",
+  "repository": "https://github.com/ideasonpurpose/gulp-tasks/tree/master/packages/gulp-task-clean",
+  "dependencies": {
+    "del": "^3.0.0"
+  }
+}
