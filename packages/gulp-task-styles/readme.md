@@ -1,5 +1,5 @@
 ![](https://img.shields.io/npm/v/@ideasonpurpose/gulp-task-styles.svg)
-[![dependencies Status](https://david-dm.org/ideasonpurpose/gulp-tasks/status.svg?path=packages/gulp-task-styles)](https://david-dm.org/ideasonpurpose/gulp-tasks?path=packages/gulp-task-imagemin)
+[![dependencies Status](https://david-dm.org/ideasonpurpose/gulp-tasks/status.svg?path=packages/gulp-task-styles)](https://david-dm.org/ideasonpurpose/gulp-tasks?path=packages/gulp-task-styles)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 # Gulp Task: Styles
@@ -23,14 +23,10 @@ $ npm install @ideasonpurpose/gulp-task-styles
 Call the `create` method directly on the import. In most cases, just trust the defaults and go:
 
 ```js
+// Call `create` on the require to initialize a new task
 const sass = require("@ideasonpurpose/gulp-task-styles").create();
 
-// Call the task as a watch action
-const watch = () => {
-  gulp.watch("src/sass/**/*", sass);
-};
-
-// Export to make the task public
+// Export to make the task publicly callable
 exports.sass = sass;
 ```
 
@@ -60,7 +56,7 @@ The `create` method accepts one configuration object. This module accepts four p
   An array of plugins to pass to [gulp-postcss][]. This array completely replaces the default set of plugins. See [**PostCSS Options**](#postcss-options) below for defaults.  
   _Passed directly to `gulp-postcss`_
 
-- **gulp**
+- **gulp**  
   The current gulp instance. Required when `srcOptions.since` is `true`
 
 ### Sass Config

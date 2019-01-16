@@ -21,14 +21,10 @@ This module is a factory function which returns a pre-configured task for gulp 4
 Call the `create` method directly on the import. In many cases, just trust the defaults and go:
 
 ```js
+// Call `create` on the require to initialize a new task
 const imagemin = require("@ideasonpurpose/gulp-task-imagemin").create();
 
-// Call the task as a watch action
-const watch = () => {
-  gulp.watch("src/images/**/*", imagemin);
-};
-
-// Export to make the task public
+// Export to make the task publicly callable
 exports.imagemin = imagemin;
 ```
 
@@ -54,8 +50,8 @@ The `create` method accepts one configuration object. This module accepts four p
   An array of plugins to pass to [gulp-imagemin][]. This array completely replaces the default set and should include a plugin for each file format to be processed. See **plugins** below for defaults.  
   _Passed directly to `gulp-imagemin`_
 
-- **gulp**
-  The current gulp instance. Required when `srcOptions.since` is `true`
+- **gulp**  
+  The current gulp instance. Required when `srcOptions.since` is `true` or when using the `watch` helper method.
 
 #### Incremental Builds
 
@@ -70,7 +66,7 @@ const imagemin = require("@ideasonpurpose/gulp-task-imagemin").create({
 });
 ```
 
-Incremental builds may prevent new files from being processed. If the file's modification date is before the tasks's last-run timestamp, the new file will not be processed. Either restart the watch or `touch` the files to be added.
+Incremental builds may prevent newly added files from being processed. If the modification dates of the new files are before the task's last-run timestamp, the new files will not be processed. Either restart the watch or `touch` the files to be added.
 
 ### Plugins
 

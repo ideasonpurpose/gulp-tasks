@@ -1,7 +1,7 @@
 {
   "name": "@ideasonpurpose/gulp-task-styles",
   "version": "0.1.0",
-  "description": "A gulp 4 task for compiling Sass stylesheets",
+  "description": "A gulp 4 task for compiling stylesheets with Sass and PostCSS",
   "license": "ISC",
   "author": "Ideas On Purpose (https://www.ideasonpurpose.com)",
   "contributors": [
