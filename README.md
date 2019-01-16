@@ -12,8 +12,9 @@ All packages export a factory function which returns a pre-configured Gulp 4 tas
 
 ### Tasks
 
+- [@ideasonpurpose/gulp-task-clean](https://www.npmjs.com/package/@ideasonpurpose/gulp-task-clean)
+- [@ideasonpurpose/gulp-task-copy](https://www.npmjs.com/package/@ideasonpurpose/gulp-task-copy)
 - [@ideasonpurpose/gulp-task-imagemin](https://www.npmjs.com/package/@ideasonpurpose/gulp-task-imagemin)
-
 - [@ideasonpurpose/gulp-task-styles](https://www.npmjs.com/package/@ideasonpurpose/gulp-task-styles)
 
 [iop]: https://www.ideasonpurpose.com
