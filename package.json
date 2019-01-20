@@ -11,9 +11,11 @@
   ],
   "main": "index.js",
   "scripts": {
-    "lerna": "lerna"
+    "lerna": "lerna",
+    "test": "jest"
   },
   "devDependencies": {
+    "jest": "^23.6.0",
     "lerna": "^3.10.5"
   }
 }
