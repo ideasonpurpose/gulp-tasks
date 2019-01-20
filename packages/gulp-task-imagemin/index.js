@@ -87,7 +87,7 @@ const create = opts => {
   gulpImagemin.description = "Compress images with ImageMin";
 
   // TODO: Worried, is this too much magic?
-  // Use a factory function to retjurn a configured Gulp.watch task
+  // Use a factory function to return a configured Gulp.watch task
   gulpImagemin.watch = () => gulp.watch(src, { cwd: srcOptions.cwd }, gulpImagemin);
 
   // use the spread operator to apply arguments to gulp.watch()

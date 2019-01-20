@@ -49,7 +49,7 @@ const create = opts => {
   gulpCopy.description = "Copy static files";
 
   // TODO: Worried, is this too much magic?
-  // Use a factory function to retjurn a configured Gulp.watch task
+  // Use a factory function to return a configured Gulp.watch task
   gulpCopy.watch = () => gulp.watch(src, { cwd: srcOptions.cwd }, gulpCopy);
 
   // use the spread operator to apply arguments to gulp.watch()
