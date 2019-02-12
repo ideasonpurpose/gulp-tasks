@@ -39,14 +39,14 @@ The `create` method accepts one configuration object. This module accepts one pr
 
 ### Example use
 
-An example which clears both the `dist` and `snapshots` directories before running a build task might look like this:
+An example which cleans both the `dist` directory and all `*.zip` files from `snapshots` before running a build task might look like this:
 
 ```js
 const gulp = require("gulp");
-const clean = require("@ideasonpurpose/gulp-task-clean").create();
+const clean = require("@ideasonpurpose/gulp-task-clean").create({
+  target: ["dist", "snapshots/**/*.zip"]
+});
 
-// other tasks could include styles, imaagemin, etc
-
-// export only the build task
+// Run this in series as part of a pipeline and only the one build task
 exports.build = gulp.series(clean, gulp.parallel(styles, imaagemin));
 ```
