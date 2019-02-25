@@ -1,6 +1,7 @@
 const gulp = require("gulp");
 const imagemin = require("gulp-imagemin");
 const imageminMozjpeg = require("imagemin-mozjpeg");
+const imageminPngquant = require("imagemin-pngquant");
 const bs = require("browser-sync");
 const browserSync = bs.has(process.env.npm_package_name)
   ? bs.get(process.env.npm_package_name)
@@ -10,8 +11,13 @@ const browserSync = bs.has(process.env.npm_package_name)
 
 const prodPlugins = [
   imagemin.gifsicle({ optimizationLevel: 3 }),
-  imagemin.optipng({ optimizationLevel: 5 }),
-  imageminMozjpeg({ quality: 80 }),
+  imageminPngquant({
+    strip: true,
+    dithering: 0.3,
+    quality: [0.5, 0.8],
+    verbose: true
+  }),
+  imageminMozjpeg({ quality: 80, progressive: true }),
   imagemin.svgo({
     floatPrecision: 3,
     plugins: [
@@ -88,7 +94,8 @@ const create = opts => {
 
   // TODO: Worried, is this too much magic?
   // Use a factory function to return a configured Gulp.watch task
-  gulpImagemin.watch = () => gulp.watch(src, { cwd: srcOptions.cwd }, gulpImagemin);
+  gulpImagemin.watch = () =>
+    gulp.watch(src, { cwd: srcOptions.cwd }, gulpImagemin);
 
   // use the spread operator to apply arguments to gulp.watch()
   // gulpImagemin.watch = [src, { cwd: srcOptions.cwd }, gulpImagemin];
