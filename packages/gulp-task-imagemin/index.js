@@ -11,12 +11,13 @@ const browserSync = bs.has(process.env.npm_package_name)
 
 const prodPlugins = [
   imagemin.gifsicle({ optimizationLevel: 3 }),
-  imageminPngquant({
-    strip: true,
-    dithering: 0.3,
-    quality: [0.5, 0.8],
-    verbose: true
-  }),
+  // imageminPngquant({
+  //   strip: true,
+  //   dithering: 0.3,
+  //   quality: [0.5, 0.8],
+  //   verbose: true
+  // }),
+  imagemin.optipng({ optimizationLevel: 5 }),
   imageminMozjpeg({ quality: 80, progressive: true }),
   imagemin.svgo({
     floatPrecision: 3,
