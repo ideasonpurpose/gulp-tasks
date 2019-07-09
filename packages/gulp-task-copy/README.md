@@ -57,6 +57,9 @@ The `create` method accepts one configuration object. This module accepts four p
 - **gulp**  
   The current gulp instance. Required when `srcOptions.since` is `true` or when using the `watch` helper method.
 
+- **debug**  
+  Reveal stream contents to console with [gulp-debug]().
+
 #### Incremental Builds
 
 If `srcOptions` includes `since: true`, a `gulp` instance must be passed into the task for the incremental build checks to work correctly. Something like this:

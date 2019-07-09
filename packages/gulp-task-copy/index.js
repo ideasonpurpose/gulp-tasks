@@ -2,7 +2,9 @@ const gulp = require("gulp");
 
 const chalk = require("chalk");
 const log = require("fancy-log");
-// const debug = require("gulp-debug");
+
+const gulpDebug = require("gulp-debug");
+const gulpif = require("gulp-if");
 
 const filesize = require("filesize");
 const sum = arr => arr.reduce((a, b) => a + b, 0);
@@ -10,7 +12,8 @@ const sum = arr => arr.reduce((a, b) => a + b, 0);
 const defaults = {
   src: ["**/*", "!webpack.config.js", "!{images,js,sass}/**/*"],
   srcOptions: { cwd: "./src", nodir: true },
-  dest: "./dist"
+  dest: "./dist",
+  debug: false
 };
 
 // TODO: break this out too? repeating in quite a few of these
@@ -30,11 +33,13 @@ const gulpSinceCheck = opts => {
 const create = opts => {
   gulpSinceCheck(opts);
 
-  const { src, srcOptions, dest } = { ...defaults, ...opts };
+  const { src, srcOptions, dest, debug } = { ...defaults, ...opts };
+
   function gulpCopy() {
     const filesizes = [];
     return gulp
       .src(src, srcOptions)
+      .pipe(gulpif(debug, gulpDebug()))
       .on("data", data => filesizes.push(data.contents.length))
       .pipe(gulp.dest(dest))
       .on("end", () => {
